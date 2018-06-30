@@ -1,8 +1,9 @@
-class openstack_upgrade::horizon_queens {
+class Openstack_Upgrades::horizon_queens {
   package { 'openstack-dashboard':
     ensure => "latest"
   }
 
+  # Little hack as it would not upgrade it.
   exec { 'angular-gettext':
     command => "/bin/yum install -y python2-XStatic-Angular-Gettext"
   }
@@ -15,8 +16,8 @@ class openstack_upgrade::horizon_queens {
     mode => "0640",
     owner => 'root',
     group => 'apache',
-    source => 'puppet:///modules/openstack_upgrade/configs/horizon/queens/local_settings'
+    source => 'puppet:///modules/Openstack_Upgrades/configs/horizon/queens/local_settings'
   }
 }
 
-class { 'openstack_upgrade::horizon_queens': }
+class { 'Openstack_Upgrades::horizon_queens': }

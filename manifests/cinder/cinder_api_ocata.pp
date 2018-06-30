@@ -1,4 +1,4 @@
-class openstack_upgrade::cinder_api_ocata {
+class Openstack_Upgrades::cinder_api_ocata {
   package { 'openstack-cinder':
     ensure => "latest"
   }
@@ -7,7 +7,7 @@ class openstack_upgrade::cinder_api_ocata {
     mode => "0640",
     owner => 'cinder',
     group => 'cinder',
-    content => epp('openstack_upgrade/configs/cinder/ocata/cinder.conf.epp')
+    content => epp('Openstack_Upgrades/configs/cinder/ocata/cinder.conf.epp')
   }
 
   exec { 'cinder_ocata_db':
@@ -16,4 +16,4 @@ class openstack_upgrade::cinder_api_ocata {
   }
 }
 
-class { 'openstack_upgrade::cinder_api_ocata': }
+class { 'Openstack_Upgrades::cinder_api_ocata': }

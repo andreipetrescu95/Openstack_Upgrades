@@ -1,7 +1,7 @@
-class openstack_upgrade::release_ocata {
+class Openstack_Upgrades::release_ocata {
   package { 'centos-release-openstack-ocata':
     ensure => "installed"
   }
 }
 
-class { 'openstack_upgrade::release_ocata': }
+class { 'Openstack_Upgrades::release_ocata': }

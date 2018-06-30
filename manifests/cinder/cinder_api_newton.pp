@@ -1,4 +1,4 @@
-class openstack_upgrade::cinder_api_newton {
+class Openstack_Upgrades::cinder_api_newton {
   package { 'python2-os-brick':
     ensure => "latest",
     install_options => "--nogpgcheck"
@@ -13,14 +13,14 @@ class openstack_upgrade::cinder_api_newton {
     mode => "0640",
     owner => 'cinder',
     group => 'cinder',
-    content => epp('openstack_upgrade/configs/cinder/newton/cinder.conf.epp')
+    content => epp('Openstack_Upgrades/configs/cinder/newton/cinder.conf.epp')
   }
 
   file { "/usr/lib/python2.7/site-packages/cinder/db/sqlalchemy/api.py":
     mode => "644",
     owner => 'root',
     group => 'root',
-    source => 'puppet:///modules/openstack_upgrade/configs/cinder/misc/api.py'
+    source => 'puppet:///modules/Openstack_Upgrades/configs/cinder/misc/api.py'
   }
 
   exec { 'cinder_newton_db':
@@ -29,4 +29,4 @@ class openstack_upgrade::cinder_api_newton {
   }
 }
 
-class { 'openstack_upgrade::cinder_api_newton': }
+class { 'Openstack_Upgrades::cinder_api_newton': }

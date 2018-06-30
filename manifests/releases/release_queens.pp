@@ -1,4 +1,4 @@
-class openstack_upgrade::release_queens {
+class Openstack_Upgrades::release_queens {
   package { 'centos-release-ceph-jewel':
     ensure => "purged"
   }
@@ -8,4 +8,4 @@ class openstack_upgrade::release_queens {
   }
 }
 
-class { 'openstack_upgrade::release_queens': }
+class { 'Openstack_Upgrades::release_queens': }

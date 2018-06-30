@@ -1,4 +1,4 @@
-class openstack_upgrade::neutron_comp_queens {
+class Openstack_Upgrades::neutron_comp_queens {
   package { 'openstack-neutron-openvswitch':
     ensure => "latest"
   }
@@ -15,8 +15,8 @@ class openstack_upgrade::neutron_comp_queens {
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    content => epp('openstack_upgrade/configs/neutron/queens/compute/openvswitch_agent.ini.epp')
+    content => epp('Openstack_Upgrades/configs/neutron/queens/compute/openvswitch_agent.ini.epp')
   }
 }
 
-class { 'openstack_upgrade::neutron_comp_queens': }
+class { 'Openstack_Upgrades::neutron_comp_queens': }

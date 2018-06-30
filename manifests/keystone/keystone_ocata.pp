@@ -1,4 +1,4 @@
-class openstack_upgrade::keystone_ocata {
+class Openstack_Upgrades::keystone_ocata {
   exec { 'keystone_ocata_endpoints': 
     command => "/bin/endpoint_set /etc/keystone/admin-openrc.sh keystone \"http://openstack:35357/v3\" \"http://openstack:5000/v3\" \"http://openstack:5000/v3\""
   }
@@ -23,7 +23,7 @@ class openstack_upgrade::keystone_ocata {
     mode => "0640",
     owner => 'keystone',
     group => 'keystone',
-    source => 'puppet:///modules/openstack_upgrade/configs/keystone/ocata/keystone.conf'
+    source => 'puppet:///modules/Openstack_Upgrades/configs/keystone/ocata/keystone.conf'
   }
 
   exec { 'keystone_ocata_db':
@@ -49,4 +49,4 @@ class openstack_upgrade::keystone_ocata {
   }
 }
 
-class { 'openstack_upgrade::keystone_ocata': }
+class { 'Openstack_Upgrades::keystone_ocata': }

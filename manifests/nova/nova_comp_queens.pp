@@ -1,4 +1,4 @@
-class openstack_upgrade::nova_comp_queens {
+class Openstack_Upgrades::nova_comp_queens {
   package { 'openstack-nova-compute':
     ensure => "latest"
   }
@@ -7,8 +7,8 @@ class openstack_upgrade::nova_comp_queens {
     mode => "0640",
     owner => 'nova',
     group => 'nova',
-    content => epp('openstack_upgrade/configs/nova/queens/compute/nova.conf.epp')
+    content => epp('Openstack_Upgrades/configs/nova/queens/compute/nova.conf.epp')
   }
 }
 
-class { 'openstack_upgrade::nova_comp_queens': }
+class { 'Openstack_Upgrades::nova_comp_queens': }
