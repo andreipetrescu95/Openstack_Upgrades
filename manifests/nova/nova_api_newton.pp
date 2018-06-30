@@ -48,11 +48,11 @@ class openstack_upgrade::nova_api_newton {
     unless => "/bin/ls /root/nova-newton-finished" 
   }
 
-  # exec { 'nova_newton_db_migration':
-  #   command => "/bin/nova-manage db online_data_migrations",
-  #   user => "nova",
-  #   unless => "/bin/ls /root/nova-newton-finished" 
-  # }
+  exec { 'nova_newton_db_migration':
+    command => "/bin/nova-manage db online_data_migrations",
+    user => "nova",
+    unless => "/bin/ls /root/nova-newton-finished" 
+  }
 }
 
 class { 'openstack_upgrade::nova_api_newton': }
