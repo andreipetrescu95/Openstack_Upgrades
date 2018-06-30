@@ -1,7 +1,7 @@
-class Openstack_Upgrades::release_pike {
+class openstack_upgrade::release_pike {
   package { 'centos-release-openstack-pike':
     ensure => "installed"
   }
 }
 
-class { 'Openstack_Upgrades::release_pike': }
+class { 'openstack_upgrade::release_pike': }

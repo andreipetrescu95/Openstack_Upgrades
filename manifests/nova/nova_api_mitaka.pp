@@ -1,4 +1,4 @@
-class Openstack_Upgrades::nova_api_mitaka {
+class openstack_upgrade::nova_api_mitaka {
   exec { 'nova_mitaka_endpoints': 
     command => "/bin/endpoint_set /etc/keystone/admin-openrc.sh nova \"http://openstack:8774/v2.1/%(tenant_id)s\" \"http://openstack:8774/v2.1/%(tenant_id)s\" \"http://openstack:8774/v2.1/%(tenant_id)s\""
   }
@@ -37,7 +37,7 @@ class Openstack_Upgrades::nova_api_mitaka {
     mode => "0640",
     owner => 'nova',
     group => 'nova',
-    content => epp('Openstack_Upgrades/configs/nova/mitaka/controller/nova.conf.epp')
+    content => epp('openstack_upgrade/configs/nova/mitaka/controller/nova.conf.epp')
   }
 
   exec { 'nova_mitaka_api_db':
@@ -51,4 +51,4 @@ class Openstack_Upgrades::nova_api_mitaka {
   }
 }
 
-class { 'Openstack_Upgrades::nova_api_mitaka': }
+class { 'openstack_upgrade::nova_api_mitaka': }

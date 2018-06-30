@@ -1,4 +1,4 @@
-class Openstack_Upgrades::nova_api_ocata {
+class openstack_upgrade::nova_api_ocata {
   exec { 'create_cell0':
     command => "/bin/create_cell0 root root nova"
   }
@@ -47,19 +47,19 @@ class Openstack_Upgrades::nova_api_ocata {
     mode => "0640",
     owner => 'nova',
     group => 'nova',
-    content => epp('Openstack_Upgrades/configs/nova/ocata/nova.conf.epp')
+    content => epp('openstack_upgrade/configs/nova/ocata/nova.conf.epp')
   }
 
   file { "/etc/httpd/conf.d/00-nova-placement-api.conf":
     mode => "0640",
-    source => 'puppet:///modules/Openstack_Upgrades/configs/nova/misc/00-nova-placement-api.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/nova/misc/00-nova-placement-api.conf'
   }
 
   file { "/usr/lib/python2.7/site-packages/nova/db/sqlalchemy/api.py":
     mode => "644",
     owner => 'root',
     group => 'root',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/nova/misc/api.py'
+    source => 'puppet:///modules/openstack_upgrade/configs/nova/misc/api.py'
   }
 
   exec { 'nova_ocata_map_cell0':
@@ -83,4 +83,4 @@ class Openstack_Upgrades::nova_api_ocata {
   }
 }
 
-class { 'Openstack_Upgrades::nova_api_ocata': }
+class { 'openstack_upgrade::nova_api_ocata': }

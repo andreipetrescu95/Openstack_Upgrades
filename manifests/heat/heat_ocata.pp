@@ -1,4 +1,4 @@
-class Openstack_Upgrades::heat_ocata {
+class openstack_upgrade::heat_ocata {
   package { 'openstack-heat-api':
     ensure => "latest"
   }
@@ -15,7 +15,7 @@ class Openstack_Upgrades::heat_ocata {
     mode => "0640",
     owner => 'heat',
     group => 'heat',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/heat/ocata/heat.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/heat/ocata/heat.conf'
   }
 
   exec { 'heat_ocata_db':
@@ -24,4 +24,4 @@ class Openstack_Upgrades::heat_ocata {
   }
 }
 
-class { 'Openstack_Upgrades::heat_ocata': }
+class { 'openstack_upgrade::heat_ocata': }

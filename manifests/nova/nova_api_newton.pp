@@ -1,4 +1,4 @@
-class Openstack_Upgrades::nova_api_newton {
+class openstack_upgrade::nova_api_newton {
   package { 'openstack-nova-api':
     ensure => "latest",
     install_options => "--nogpgcheck"
@@ -33,7 +33,7 @@ class Openstack_Upgrades::nova_api_newton {
     mode => "0640",
     owner => 'nova',
     group => 'nova',
-    content => epp('Openstack_Upgrades/configs/nova/newton/nova.conf.epp')
+    content => epp('openstack_upgrade/configs/nova/newton/nova.conf.epp')
   }
 
   exec { 'nova_newton_api_db':
@@ -52,4 +52,4 @@ class Openstack_Upgrades::nova_api_newton {
   }
 }
 
-class { 'Openstack_Upgrades::nova_api_newton': }
+class { 'openstack_upgrade::nova_api_newton': }

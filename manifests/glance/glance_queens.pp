@@ -1,4 +1,4 @@
-class Openstack_Upgrades::glance_queens {
+class openstack_upgrade::glance_queens {
   package { 'openstack-glance':
     ensure => "latest"
   }
@@ -7,14 +7,14 @@ class Openstack_Upgrades::glance_queens {
     mode => "0640",
     owner => 'glance',
     group => 'glance',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/glance/queens/glance-api.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/glance/queens/glance-api.conf'
   }
 
   file { "/etc/glance/glance-registry.conf":
     mode => "0640",
     owner => 'glance',
     group => 'glance',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/glance/queens/glance-registry.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/glance/queens/glance-registry.conf'
   }
 
   exec { 'glance_queens_db':
@@ -23,4 +23,4 @@ class Openstack_Upgrades::glance_queens {
   }
 }
 
-class { 'Openstack_Upgrades::glance_queens': }
+class { 'openstack_upgrade::glance_queens': }

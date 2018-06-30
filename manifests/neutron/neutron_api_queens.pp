@@ -1,4 +1,4 @@
-class Openstack_Upgrades::neutron_api_queens {
+class openstack_upgrade::neutron_api_queens {
   package { 'openstack-neutron':
     ensure => "latest",
     install_options => "--nogpgcheck"
@@ -38,14 +38,14 @@ class Openstack_Upgrades::neutron_api_queens {
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/neutron/queens/controller/neutron.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/neutron/queens/controller/neutron.conf'
   }
 
   file { "/etc/neutron/plugins/ml2/ml2_conf.ini":
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/neutron/queens/controller/ml2_conf.ini'
+    source => 'puppet:///modules/openstack_upgrade/configs/neutron/queens/controller/ml2_conf.ini'
   }
 
   exec { 'neutron_queens_db':
@@ -55,4 +55,4 @@ class Openstack_Upgrades::neutron_api_queens {
   }
 }
 
-class { 'Openstack_Upgrades::neutron_api_queens': }
+class { 'openstack_upgrade::neutron_api_queens': }

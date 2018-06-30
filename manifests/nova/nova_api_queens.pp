@@ -1,4 +1,4 @@
-class Openstack_Upgrades::nova_api_queens {
+class openstack_upgrade::nova_api_queens {
   package { 'openstack-nova-api':
     ensure => "latest"
   }
@@ -31,7 +31,7 @@ class Openstack_Upgrades::nova_api_queens {
     mode => "0640",
     owner => 'nova',
     group => 'nova',
-    content => epp('Openstack_Upgrades/configs/nova/queens/controller/nova.conf.epp')
+    content => epp('openstack_upgrade/configs/nova/queens/controller/nova.conf.epp')
   }
 
   exec { 'nova_queens_api_db':
@@ -45,4 +45,4 @@ class Openstack_Upgrades::nova_api_queens {
   }
 }
 
-class { 'Openstack_Upgrades::nova_api_queens': }
+class { 'openstack_upgrade::nova_api_queens': }

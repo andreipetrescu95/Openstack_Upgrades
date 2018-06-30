@@ -1,4 +1,4 @@
-class Openstack_Upgrades::glance_ocata {
+class openstack_upgrade::glance_ocata {
   package { 'openstack-glance':
     ensure => "latest"
   }
@@ -15,14 +15,14 @@ class Openstack_Upgrades::glance_ocata {
     mode => "0640",
     owner => 'glance',
     group => 'glance',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/glance/ocata/glance-api.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/glance/ocata/glance-api.conf'
   }
 
   file { "/etc/glance/glance-registry.conf":
     mode => "0640",
     owner => 'glance',
     group => 'glance',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/glance/ocata/glance-registry.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/glance/ocata/glance-registry.conf'
   }
 
   exec { 'glance_ocata_db':
@@ -31,4 +31,4 @@ class Openstack_Upgrades::glance_ocata {
   }
 }
 
-class { 'Openstack_Upgrades::glance_ocata': }
+class { 'openstack_upgrade::glance_ocata': }

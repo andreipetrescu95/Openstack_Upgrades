@@ -1,4 +1,4 @@
-class Openstack_Upgrades::cinder_api_queens {
+class openstack_upgrade::cinder_api_queens {
   exec { 'cinder_queens_endpoints': 
     command => "/bin/endpoint_set /etc/keystone/admin-openrc.sh volumev2 \"http://openstack:8776/v2/%(project_id)s\" \"http://openstack:8776/v2/%(project_id)s\" \"http://openstack:8776/v2/%(project_id)s\""
   }
@@ -19,7 +19,7 @@ class Openstack_Upgrades::cinder_api_queens {
     mode => "0640",
     owner => 'cinder',
     group => 'cinder',
-    content => epp('Openstack_Upgrades/configs/cinder/queens/controller/cinder.conf.epp')
+    content => epp('openstack_upgrade/configs/cinder/queens/controller/cinder.conf.epp')
   }
 
   exec { 'cinder_queens_db':
@@ -28,4 +28,4 @@ class Openstack_Upgrades::cinder_api_queens {
   }
 }
 
-class { 'Openstack_Upgrades::cinder_api_queens': }
+class { 'openstack_upgrade::cinder_api_queens': }

@@ -1,4 +1,4 @@
-class Openstack_Upgrades::neutron_api_ocata {
+class openstack_upgrade::neutron_api_ocata {
   package { 'openstack-neutron':
     ensure => "latest",
     install_options => "--nogpgcheck"
@@ -38,14 +38,14 @@ class Openstack_Upgrades::neutron_api_ocata {
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/neutron/ocata/neutron.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/neutron/ocata/neutron.conf'
   }
 
   file { "/etc/neutron/plugins/ml2/ml2_conf.ini":
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/neutron/ocata/ml2_conf.ini'
+    source => 'puppet:///modules/openstack_upgrade/configs/neutron/ocata/ml2_conf.ini'
   }
 
   exec { 'neutron_ocata_db':
@@ -55,4 +55,4 @@ class Openstack_Upgrades::neutron_api_ocata {
   }
 }
 
-class { 'Openstack_Upgrades::neutron_api_ocata': }
+class { 'openstack_upgrade::neutron_api_ocata': }

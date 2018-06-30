@@ -1,4 +1,4 @@
-class Openstack_Upgrades::cinder_store_queens {
+class openstack_upgrade::cinder_store_queens {
   package { 'lvm2':
     ensure => "latest"
   }
@@ -23,8 +23,8 @@ class Openstack_Upgrades::cinder_store_queens {
     mode => "0640",
     owner => 'cinder',
     group => 'cinder',
-    content => epp('Openstack_Upgrades/configs/cinder/queens/storage/cinder.conf.epp')
+    content => epp('openstack_upgrade/configs/cinder/queens/storage/cinder.conf.epp')
   }
 }
 
-class { 'Openstack_Upgrades::cinder_store_queens': }
+class { 'openstack_upgrade::cinder_store_queens': }

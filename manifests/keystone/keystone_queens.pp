@@ -1,4 +1,4 @@
-class Openstack_Upgrades::keystone_queens {
+class openstack_upgrade::keystone_queens {
   exec { 'keystone_queens_endpoints': 
     command => "/bin/endpoint_set /etc/keystone/admin-openrc.sh keystone \"http://openstack:5000/v3\" \"http://openstack:5000/v3\" \"http://openstack:5000/v3\""
   }
@@ -19,7 +19,7 @@ class Openstack_Upgrades::keystone_queens {
     mode => "0640",
     owner => 'keystone',
     group => 'keystone',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/keystone/queens/keystone.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/keystone/queens/keystone.conf'
   }
 
   exec { 'keystone_queens_db':
@@ -32,4 +32,4 @@ class Openstack_Upgrades::keystone_queens {
   }
 }
 
-class { 'Openstack_Upgrades::keystone_queens': }
+class { 'openstack_upgrade::keystone_queens': }

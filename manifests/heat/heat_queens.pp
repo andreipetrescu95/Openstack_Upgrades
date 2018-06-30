@@ -1,4 +1,4 @@
-class Openstack_Upgrades::heat_queens {
+class openstack_upgrade::heat_queens {
   package { 'openstack-heat-api':
     ensure => "latest"
   }
@@ -15,7 +15,7 @@ class Openstack_Upgrades::heat_queens {
     mode => "0640",
     owner => 'heat',
     group => 'heat',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/heat/queens/heat.conf'
+    source => 'puppet:///modules/openstack_upgrade/configs/heat/queens/heat.conf'
   }
 
   exec { 'heat_queens_db':
@@ -24,4 +24,4 @@ class Openstack_Upgrades::heat_queens {
   }
 }
 
-class { 'Openstack_Upgrades::heat_queens': }
+class { 'openstack_upgrade::heat_queens': }

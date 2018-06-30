@@ -1,4 +1,4 @@
-class Openstack_Upgrades::horizon_queens {
+class openstack_upgrade::horizon_queens {
   package { 'openstack-dashboard':
     ensure => "latest"
   }
@@ -16,8 +16,8 @@ class Openstack_Upgrades::horizon_queens {
     mode => "0640",
     owner => 'root',
     group => 'apache',
-    source => 'puppet:///modules/Openstack_Upgrades/configs/horizon/queens/local_settings'
+    source => 'puppet:///modules/openstack_upgrade/configs/horizon/queens/local_settings'
   }
 }
 
-class { 'Openstack_Upgrades::horizon_queens': }
+class { 'openstack_upgrade::horizon_queens': }
