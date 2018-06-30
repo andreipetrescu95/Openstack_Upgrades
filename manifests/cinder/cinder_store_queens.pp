@@ -7,6 +7,10 @@ class openstack_upgrade::cinder_store_queens {
     ensure => "latest"
   }
 
+  package { 'pyparsing':
+    ensure => "latest"
+  }
+
   package { 'openstack-cinder':
     ensure => "latest"
   }
