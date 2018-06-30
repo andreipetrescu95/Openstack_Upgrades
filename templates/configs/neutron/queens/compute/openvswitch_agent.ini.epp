@@ -3,7 +3,6 @@
 tunnel_types = vxlan
 [network_log]
 [ovs]
-bridge_mappings = public:br-provider
 local_ip = <%= $::ipaddress_eth0 %>
 [securitygroup]
 [xenapi]
