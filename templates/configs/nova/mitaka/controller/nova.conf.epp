@@ -1,0 +1,75 @@
+[DEFAULT]
+my_ip = <%= $::ipaddress_eth0 %>
+use_neutron = True
+firewall_driver = nova.virt.firewall.NoopFirewallDriver
+rpc_backend = rabbit
+auth_strategy = keystone
+enabled_apis = osapi_compute,metadata
+[api_database]
+connection = mysql+pymysql://nova:nova@openstack/nova_api
+[barbican]
+[cache]
+[cells]
+[cinder]
+os_region_name = RegionOne
+[conductor]
+[cors]
+[cors.subdomain]
+[database]
+connection = mysql+pymysql://nova:nova@openstack/nova
+[ephemeral_storage_encryption]
+[glance]
+api_servers = http://openstack:9292
+[guestfs]
+[hyperv]
+[image_file_url]
+[ironic]
+[keymgr]
+[keystone_authtoken]
+auth_uri = http://openstack:5000
+auth_url = http://openstack:35357
+memcached_servers = openstack:11211
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = nova
+password = nova
+[libvirt]
+[matchmaker_redis]
+[metrics]
+[neutron]
+url = http://openstack:9696
+auth_url = http://openstack:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = neutron
+service_metadata_proxy = True
+metadata_proxy_shared_secret = METADATA_SECRET
+[osapi_v21]
+[oslo_concurrency]
+lock_path = /var/lib/nova/tmp
+[oslo_messaging_amqp]
+[oslo_messaging_notifications]
+[oslo_messaging_rabbit]
+rabbit_host = openstack
+rabbit_userid = openstack
+rabbit_password = openstack
+[oslo_middleware]
+[oslo_policy]
+[rdp]
+[serial_console]
+[spice]
+[ssl]
+[trusted_computing]
+[upgrade_levels]
+[vmware]
+[vnc]
+vncserver_listen = $my_ip
+vncserver_proxyclient_address = $my_ip
+[workarounds]
+[xenserver]
