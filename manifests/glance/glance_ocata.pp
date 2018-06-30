@@ -27,8 +27,7 @@ class openstack_upgrade::glance_ocata {
 
   exec { 'glance_ocata_db':
     command => "/bin/glance-manage db_sync",
-    user => "glance",
-    unless => "/bin/ls /root/glance-ocata-finished" 
+    user => "glance"
   }
 }
 

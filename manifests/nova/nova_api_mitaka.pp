@@ -42,14 +42,12 @@ class openstack_upgrade::nova_api_mitaka {
 
   exec { 'nova_mitaka_api_db':
     command => "/bin/nova-manage api_db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-mitaka-finished" 
+    user => "nova"
   }
 
   exec { 'nova_mitaka_db':
     command => "/bin/nova-manage db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-mitaka-finished" 
+    user => "nova"
   }
 }
 

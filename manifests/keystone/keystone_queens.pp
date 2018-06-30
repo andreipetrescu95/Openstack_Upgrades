@@ -24,8 +24,7 @@ class openstack_upgrade::keystone_queens {
 
   exec { 'keystone_queens_db':
     command => "/bin/keystone-manage db_sync",
-    user => "keystone",
-    unless => "/bin/ls /root/keystone-queens-finished" 
+    user => "keystone"
   }
 
   exec { 'keystone_chown':

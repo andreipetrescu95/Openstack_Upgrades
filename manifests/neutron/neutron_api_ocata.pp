@@ -51,8 +51,7 @@ class openstack_upgrade::neutron_api_ocata {
   exec { 'neutron_ocata_db':
     command => "/bin/neutron-db-manage --config-file /etc/neutron/neutron.conf \
                 --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head",
-    user => "neutron",
-    unless => "/bin/ls /root/neutron-ocata-finished" 
+    user => "neutron"
   }
 }
 

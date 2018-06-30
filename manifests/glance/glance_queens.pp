@@ -19,8 +19,7 @@ class openstack_upgrade::glance_queens {
 
   exec { 'glance_queens_db':
     command => "/bin/glance-manage db_sync",
-    user => "glance",
-    unless => "/bin/ls /root/glance-queens-finished"
+    user => "glance"
   }
 }
 

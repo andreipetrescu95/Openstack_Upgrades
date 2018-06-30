@@ -28,8 +28,7 @@ class openstack_upgrade::keystone_ocata {
 
   exec { 'keystone_ocata_db':
     command => "/bin/keystone-manage db_sync",
-    user => "keystone",
-    unless => "/bin/ls /root/keystone-ocata-finished" 
+    user => "keystone"
   }
 
   exec { 'fernet_setup':

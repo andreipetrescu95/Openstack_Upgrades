@@ -20,8 +20,7 @@ class openstack_upgrade::heat_ocata {
 
   exec { 'heat_ocata_db':
     command => "/bin/heat-manage db_sync",
-    user => "heat",
-    unless => "/bin/ls /root/heat-ocata-finished" 
+    user => "heat"
   }
 }
 

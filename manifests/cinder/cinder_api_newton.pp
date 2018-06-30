@@ -25,8 +25,7 @@ class openstack_upgrade::cinder_api_newton {
 
   exec { 'cinder_newton_db':
     command => "/bin/cinder-manage db sync",
-    user => "cinder",
-    unless => "/bin/ls /root/cinder-newton-finished" 
+    user => "cinder"
   }
 }
 

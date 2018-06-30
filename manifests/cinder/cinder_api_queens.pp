@@ -24,8 +24,7 @@ class openstack_upgrade::cinder_api_queens {
 
   exec { 'cinder_queens_db':
     command => "/bin/cinder-manage db sync",
-    user => "cinder",
-    unless => "/bin/ls /root/cinder-queens-finished" 
+    user => "cinder"
   }
 }
 

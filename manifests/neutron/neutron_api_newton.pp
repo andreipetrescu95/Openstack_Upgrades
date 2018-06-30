@@ -56,8 +56,7 @@ class openstack_upgrade::neutron_api_newton {
   exec { 'neutron_newton_db':
     command => "/bin/neutron-db-manage --config-file /etc/neutron/neutron.conf \
                 --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head",
-    user => "neutron",
-    unless => "/bin/ls /root/neutron-newton-finished" 
+    user => "neutron"
   }
 }
 

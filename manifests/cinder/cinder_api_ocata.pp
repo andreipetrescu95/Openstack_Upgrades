@@ -12,8 +12,7 @@ class openstack_upgrade::cinder_api_ocata {
 
   exec { 'cinder_ocata_db':
     command => "/bin/cinder-manage db sync",
-    user => "cinder",
-    unless => "/bin/ls /root/cinder-ocata-finished" 
+    user => "cinder"
   }
 }
 

@@ -36,14 +36,12 @@ class openstack_upgrade::nova_api_queens {
 
   exec { 'nova_queens_api_db':
     command => "/bin/nova-manage api_db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-queens-finished" 
+    user => "nova"
   }
 
   exec { 'nova_queens_db':
     command => "/bin/nova-manage db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-queens-finished" 
+    user => "nova"
   }
 }
 

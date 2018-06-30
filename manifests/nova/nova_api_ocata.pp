@@ -64,26 +64,22 @@ class openstack_upgrade::nova_api_ocata {
 
   exec { 'nova_ocata_map_cell0':
     command => "/bin/nova-manage cell_v2 map_cell0",
-    user => "nova",
-    unless => "/bin/ls /root/nova-ocata-finished" 
+    user => "nova"
   }
 
   exec { 'nova_ocata_create_cell1':
     command => "/bin/nova-manage cell_v2 create_cell --name=cell1 --verbose",
-    user => "nova",
-    unless => "/bin/ls /root/nova-ocata-finished" 
+    user => "nova"
   }
 
   exec { 'nova_ocata_api_db':
     command => "/bin/nova-manage api_db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-ocata-finished" 
+    user => "nova" 
   }
 
   exec { 'nova_ocata_db':
     command => "/bin/nova-manage db sync",
-    user => "nova",
-    unless => "/bin/ls /root/nova-ocata-finished" 
+    user => "nova"
   }
 }
 
