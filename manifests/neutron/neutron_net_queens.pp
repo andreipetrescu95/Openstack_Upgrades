@@ -25,13 +25,6 @@ class openstack_upgrade::neutron_net_queens {
     source => 'puppet:///modules/openstack_upgrade/configs/neutron/queens/gateway/dhcp_agent.ini'
   }
 
-  file { "/etc/neutron/l3_agent.ini":
-    mode => "0640",
-    owner => 'neutron',
-    group => 'neutron',
-    source => 'puppet:///modules/openstack_upgrade/configs/neutron/queens/gateway/l3_agent.ini'
-  }
-
   file { "/etc/neutron/metadata_agent.ini":
     mode => "0640",
     owner => 'neutron',
