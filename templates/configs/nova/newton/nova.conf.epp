@@ -73,8 +73,9 @@ lock_path = /var/lib/nova/tmp
 [upgrade_levels]
 [vmware]
 [vnc]
-vncserver_listen = $my_ip
-vncserver_proxyclient_address = $my_ip
+novncproxy_host=0.0.0.0
+novncproxy_port=6080
+novncproxy_base_url=http://10.9.121.220:6080/vnc_auto.html
 [workarounds]
 [wsgi]
 [xenserver]

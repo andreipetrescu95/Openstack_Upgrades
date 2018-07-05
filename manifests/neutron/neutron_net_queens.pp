@@ -3,23 +3,7 @@ class openstack_upgrade::neutron_net_queens {
     ensure => "latest"
   }
 
-  package { 'openstack-neutron-openvswitch':
-    ensure => "latest"
-  }
-
-  package { 'openstack-neutron-vpnaas':
-    ensure => "latest"
-  }
-
-  package { 'openstack-neutron-lbaas':
-    ensure => "latest"
-  }
-
-  package { 'openstack-neutron-fwaas':
-    ensure => "latest"
-  }
-
-  package { 'openstack-neutron-metering-agent':
+  package { 'openstack-neutron-linuxbridge':
     ensure => "latest"
   }
 
@@ -55,11 +39,11 @@ class openstack_upgrade::neutron_net_queens {
     source => 'puppet:///modules/openstack_upgrade/configs/neutron/queens/gateway/metadata_agent.ini'
   }
 
-  file { "/etc/neutron/plugins/ml2/openvswitch_agent.ini":
+  file { "/etc/neutron/plugins/ml2/linuxbridge_agent.ini":
     mode => "0640",
     owner => 'neutron',
     group => 'neutron',
-    content => epp('openstack_upgrade/configs/neutron/queens/gateway/openvswitch_agent.ini.epp')
+    content => epp('openstack_upgrade/configs/neutron/queens/gateway/linuxbridge_agent.ini.epp')
   }
 }
 

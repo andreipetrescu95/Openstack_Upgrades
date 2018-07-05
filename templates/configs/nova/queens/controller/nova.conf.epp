@@ -89,9 +89,9 @@ password = placement
 [vendordata_dynamic_auth]
 [vmware]
 [vnc]
-enabled = true
-server_listen = $my_ip
-server_proxyclient_address = $my_ip
+novncproxy_host=0.0.0.0
+novncproxy_port=6080
+novncproxy_base_url=http://10.9.121.220:6080/vnc_auto.html
 [workarounds]
 [wsgi]
 [xenserver]

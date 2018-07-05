@@ -9,26 +9,6 @@ class openstack_upgrade::neutron_api_pike {
     install_options => "--nogpgcheck"
   }
 
-  package { 'openstack-neutron-vpnaas':
-    ensure => "latest",
-    install_options => "--nogpgcheck"
-  }
-
-  package { 'openstack-neutron-lbaas':
-    ensure => "latest",
-    install_options => "--nogpgcheck"
-  }
-
-  package { 'openstack-neutron-fwaas':
-    ensure => "latest",
-    install_options => "--nogpgcheck"
-  }
-
-  package { 'openstack-neutron-metering-agent':
-    ensure => "latest",
-    install_options => "--nogpgcheck"
-  }
-
   package { 'ebtables':
     ensure => "latest",
     install_options => "--nogpgcheck"

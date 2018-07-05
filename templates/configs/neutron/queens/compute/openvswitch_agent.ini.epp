@@ -1,8 +1,0 @@
-[DEFAULT]
-[agent]
-tunnel_types = vxlan
-[network_log]
-[ovs]
-local_ip = <%= $::ipaddress_eth0 %>
-[securitygroup]
-[xenapi]

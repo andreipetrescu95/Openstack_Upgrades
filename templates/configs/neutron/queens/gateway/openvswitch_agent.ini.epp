@@ -1,9 +1,0 @@
-[DEFAULT]
-[agent]
-tunnel_types = vxlan
-[network_log]
-[ovs]
-bridge_mappings = public:br-provider
-local_ip = 10.9.121.220
-[securitygroup]
-[xenapi]
